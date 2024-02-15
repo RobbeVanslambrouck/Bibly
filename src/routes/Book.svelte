@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { library } from '../stores/stores';
+	import { lib } from '../globals';
 
 	let { libIndex } = $props<{ libIndex: number }>();
-	let book = $library[libIndex];
+	let book = lib.books[libIndex];
 </script>
 
 <a href={`./reader/${libIndex}`}>
-	{#await $library[libIndex].loaded.metadata then meta}
+	{#await lib.books[libIndex].loaded.metadata then meta}
 		{#await book.coverUrl()}
 			<p>{meta.title}</p>
 			-

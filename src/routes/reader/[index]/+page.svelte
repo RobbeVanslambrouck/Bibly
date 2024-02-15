@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { library } from '../../../stores/stores';
+	import { lib } from '../../../globals';
 	import type { Rendition } from 'epubjs';
 	import type { PageData } from './$types';
 
@@ -8,7 +8,7 @@
 
 	let rendition: Rendition | undefined;
 	onMount(async () => {
-		let book = $library[data.index];
+		let book = lib.books[data.index];
 		await book.ready;
 		console.log(book.load);
 		rendition = book.renderTo('book');

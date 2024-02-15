@@ -1,11 +1,9 @@
 <script lang="ts">
+	import Epub from 'epubjs';
+	import { lib } from '../globals';
 	import Book from './Book.svelte';
 
-	import Epub, { Rendition } from 'epubjs';
-	import { library } from '../stores/stores';
-
-	let bookCount = $derived($library.length);
-	let rendition: undefined | Rendition;
+	let bookCount = $derived(lib.books.length);
 
 	async function dropHandler(event: DragEvent) {
 		if (!event.dataTransfer) return;
@@ -17,7 +15,7 @@
 
 			let arrayBuffer = await file.arrayBuffer();
 			let book = Epub(arrayBuffer);
-			$library = [...$library, book];
+			lib.books.push(book);
 		}
 	}
 </script>
@@ -27,7 +25,7 @@
 	<section>
 		<h2>library ({bookCount})</h2>
 		<ul id="books">
-			{#each $library as book, libIndex}
+			{#each lib.books as _, libIndex}
 				<li>
 					<Book {libIndex}></Book>
 				</li>
