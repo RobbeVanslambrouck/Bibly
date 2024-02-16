@@ -3,23 +3,23 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" href="/Bibly/favicon.png" />
+	<link rel="icon" href="/Bibly/favicon.ico" />
+	<link rel="manifest" href="/Bibly/app.webmanifest">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	
-		<link rel="modulepreload" href="/Bibly/_app/immutable/entry/start.BsX0j_FP.js">
-		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/entry.C0xshu3v.js">
-		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/runtime.CvKES5CI.js">
-		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/index.BBDU9RHu.js">
-		<link rel="modulepreload" href="/Bibly/_app/immutable/entry/app.WdOlggJi.js">
-		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/disclose-version.CTnrH94W.js">
-		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/main-client.Bd1g612-.js">
+		<link rel="modulepreload" href="/Bibly/_app/immutable/entry/start.CEZZX6MX.js">
+		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/entry.CSFzch87.js">
+		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/runtime.Dy0AeBYV.js">
+		<link rel="modulepreload" href="/Bibly/_app/immutable/entry/app.9DNXL-Ob.js">
+		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/disclose-version.DDGIsoia.js">
+		<link rel="modulepreload" href="/Bibly/_app/immutable/chunks/main-client.Czj9vjKq.js">
 </head>
 
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">
 			<script>
 				{
-					__sveltekit_4cwa0t = {
+					__sveltekit_irwzmj = {
 						base: "/Bibly",
 						assets: "/Bibly"
 					};
@@ -27,11 +27,17 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/Bibly/_app/immutable/entry/start.BsX0j_FP.js"),
-						import("/Bibly/_app/immutable/entry/app.WdOlggJi.js")
+						import("/Bibly/_app/immutable/entry/start.CEZZX6MX.js"),
+						import("/Bibly/_app/immutable/entry/app.9DNXL-Ob.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
+
+					if ('serviceWorker' in navigator) {
+						addEventListener('load', function () {
+							navigator.serviceWorker.register('/Bibly/service-worker.js');
+						});
+					}
 				}
 			</script>
 		</div>
